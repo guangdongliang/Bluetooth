@@ -1,4 +1,4 @@
-package hust.example.bluetooth;
+package hust.example.bluetooth.Activity.fragment;
 
 
 
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import hust.example.bluetooth.Activity.fragment.ControlLockFragment;
 import hust.example.bluetooth.Activity.MainActivity;
 import hust.example.bluetooth.Activity.fragment.BLScanFragment;
+import hust.example.bluetooth.R;
 
 /**
  * Created by 相信小东 on 2016/5/3.

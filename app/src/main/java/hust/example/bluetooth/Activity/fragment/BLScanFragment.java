@@ -17,7 +17,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import hust.example.bluetooth.Activity.MainActivity;
-import hust.example.bluetooth.ListDeviceAdapter;
 import hust.example.bluetooth.R;
 
 /**

@@ -1,5 +1,7 @@
 package hust.example.bluetooth.Activity;
 
+
+
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.bluetooth.BluetoothAdapter;
@@ -17,6 +19,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,6 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hust.example.bluetooth.Activity.fragment.BLScanFragment;
+import hust.example.bluetooth.Activity.fragment.ControlLockFragment;
+import hust.example.bluetooth.Activity.fragment.WifiControlSendFragment;
 import hust.example.bluetooth.BlueDatabase;
 import hust.example.bluetooth.R;
 import hust.example.bluetooth.bluetooth.BluetoothLeService;
@@ -180,7 +185,12 @@ public class MainActivity extends AppCompatActivity {
     void showToast(String str) {
         Toast.makeText(this, str + "第一个", Toast.LENGTH_SHORT).show();
     }
-    void handleReceiveMessage(String str){}
+    void handleReceiveMessage(String str){
+        Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.id_content);
+        if(fragment!=null&&fragment instanceof ControlLockFragment){
+            ((ControlLockFragment)fragment).updateUI(str);
+        }
+    }
     private void setDefaultFragment()
     {
         FragmentManager fm = getFragmentManager();

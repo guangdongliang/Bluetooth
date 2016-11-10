@@ -2,6 +2,8 @@ package hust.example.bluetooth.Activity.fragment;
 
 
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,12 +28,14 @@ import android.widget.ToggleButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import hust.example.bluetooth.Activity.MainActivity;
 import hust.example.bluetooth.R;
+import hust.example.bluetooth.bluetooth.BluetoothLeService;
 import hust.example.bluetooth.bluetooth.SampleGattAttributes;
 
 public class ControlLockFragment extends Fragment {
@@ -125,6 +129,12 @@ public class ControlLockFragment extends Fragment {
         }*/
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+    }
+
     private void initView(){
         final EditText editText=(EditText)view.findViewById(R.id.edit1);
         lock5=(Button)view.findViewById(R.id.lock5);
@@ -164,5 +174,8 @@ public class ControlLockFragment extends Fragment {
     }
     void showToast(String text){
         Toast.makeText(mainActivity,text,Toast.LENGTH_LONG).show();
+    }
+    public void updateUI(String str){
+        messageArrayAdapter.add(sDateFormat.format(new Date()+"  "+str));
     }
 }
